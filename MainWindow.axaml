@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
+        x:Class="WarehouseDesktopApp.MainWindow"
+        Title="WarehouseDesktopApp">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Border Grid.Column="1" Grid.Row="1" Background="Coral" Opacity="0.5" CornerRadius="30">
+            <StackPanel Spacing="15" VerticalAlignment="Center">
+                <TextBox Width="300" Height="30" Watermark="Логин" CornerRadius="15" FontWeight="Bold" MaxLength="20" Name="LoginBox"/>
+                <TextBox Width="300" Height="30" Watermark="Пароль" CornerRadius="15" FontWeight="Bold" PasswordChar="*" MaxLength="20" Name="PasswordBox"/>
+                <Button HorizontalAlignment="Center" Height="30" Width="180" CornerRadius="15" Background="White" Foreground="Black" 
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Авторизироваться" FontWeight="Bold"
+                        Name="AuthButton" Click="AuthButton_OnClick"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
