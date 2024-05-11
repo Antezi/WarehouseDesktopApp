@@ -20,8 +20,14 @@ build_property.EnableGeneratedComInterfaceComImportInterop =
 [C:/Users/Anton/RiderProjects/WarehouseDesktopApp/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/Anton/RiderProjects/WarehouseDesktopApp/MainMenu.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/Anton/RiderProjects/WarehouseDesktopApp/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [C:/Users/Anton/RiderProjects/WarehouseDesktopApp/MessageBox.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/Anton/RiderProjects/WarehouseDesktopApp/UserProfile.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

@@ -4,7 +4,10 @@
     <option name="projectPerEditor">
       <map>
         <entry key="App.axaml" value="WarehouseDesktopApp.csproj" />
+        <entry key="MainMenu.axaml" value="WarehouseDesktopApp.csproj" />
         <entry key="MainWindow.axaml" value="WarehouseDesktopApp.csproj" />
+        <entry key="MessageBox.axaml" value="WarehouseDesktopApp.csproj" />
+        <entry key="UserProfile.axaml" value="WarehouseDesktopApp.csproj" />
       </map>
     </option>
   </component>

@@ -1,0 +1,42 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:warehouseDesktopApp="clr-namespace:WarehouseDesktopApp"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="WarehouseDesktopApp.MainMenu"
+        Title="MainMenu"
+        Icon="Assets/Лого-диплом.ico"
+        RequestedThemeVariant="Light">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        
+        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Background="Coral">
+            <TextBlock Margin="10 0 0 10" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Right" Name="HelloTextBlock"
+                       FontFamily="Comic Sans" FontSize="18" FontWeight="Bold"/>    
+            <Image Margin="10" HorizontalAlignment="Right" Source="Assets/Лого пользователь.png" Name="ProfileImage" DoubleTapped="ProfileImage_OnDoubleTapped"/>
+        </DockPanel>
+        
+        <StackPanel Grid.Row="1" Grid.Column="0" Spacing="20" VerticalAlignment="Center" Name="SuppliesMenu" DoubleTapped="SuppliesMenu_OnDoubleTapped">
+            <Image Width="200" Height="200" Source="Assets/Лого диплом.png"/>
+            <TextBlock TextAlignment="Center" FontFamily="Comic Sans" FontSize="18" FontWeight="Bold" Text="Панель управления грузом" TextWrapping="Wrap"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Grid.Column="1" Spacing="20" VerticalAlignment="Center" Name="ProfileMenu" DoubleTapped="ProfileMenu_OnDoubleTapped">
+            <Image Width="200" Height="200" Source="Assets/Лого управление пользователями.png"/>
+            <TextBlock TextAlignment="Center" FontFamily="Comic Sans" FontSize="18" FontWeight="Bold" Text="Панель управления пользователями" TextWrapping="Wrap"/>
+        </StackPanel>
+        
+        <warehouseDesktopApp:UserProfile x:Name="UserProfile" IsVisible="False"/>
+    </Grid>
+</Window>

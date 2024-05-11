@@ -149,3 +149,4 @@ C:\Users\Anton\RiderProjects\WarehouseDesktopApp\obj\Debug\net8.0\WarehouseDeskt
 C:\Users\Anton\RiderProjects\WarehouseDesktopApp\obj\Debug\net8.0\Warehous.C3314560.Up2Date
 C:\Users\Anton\RiderProjects\WarehouseDesktopApp\obj\Debug\net8.0\WarehouseDesktopApp.genruntimeconfig.cache
 C:\Users\Anton\RiderProjects\WarehouseDesktopApp\obj\Debug\net8.0\ref\WarehouseDesktopApp.dll
+C:\Users\Anton\RiderProjects\WarehouseDesktopApp\obj\Debug\net8.0\WarehouseDesktopApp.sourcelink.json

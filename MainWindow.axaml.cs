@@ -11,6 +11,7 @@ namespace WarehouseDesktopApp;
 
 public partial class MainWindow : Window
 {
+    private User currentUser;
     private string connectionString = "http://5.16.21.9:3001/api";
     private TextBox _loginBox, _passwordBox;
     public MainWindow()
@@ -41,18 +42,32 @@ public partial class MainWindow : Window
                 {
                     var userJson = await response.Content.ReadAsStringAsync();
                     var user = JsonConvert.DeserializeObject<User>(userJson);
-                
+
+                    currentUser = user;
+                    MainMenu mainMenu = new MainMenu(user);
+                    mainMenu.Show();
+                    this.Close();
                     // Вход выполнен успешно, используйте данные пользователя
                 }
                 else
                 {
-                    // Обработка ошибок, например, показ сообщения об ошибке
+                    MessageBox mb = new MessageBox("Произошла ошибка");
+                    mb.Closing += (sender, e) =>
+                    {
+                        // Какое-то действие
+                    };
+                    mb.ShowDialog(this);
                 }
             }
         }
         else
         {
-            // Вывод ошибки о том, что логин и пароль должны быть заполнены
+            MessageBox mb = new MessageBox("Произошла ошибка");
+            mb.Closing += (sender, e) =>
+            {
+                // Какое-то действие
+            };
+            mb.ShowDialog(this);
         }
     }
 }

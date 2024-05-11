@@ -4,7 +4,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
         x:Class="WarehouseDesktopApp.MainWindow"
-        Title="WarehouseDesktopApp">
+        Title="WarehouseDesktopApp"
+        Icon="Assets/Лого-диплом.ico"
+        RequestedThemeVariant="Light">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
