@@ -12,7 +12,7 @@ namespace WarehouseDesktopApp;
 public partial class MainWindow : Window
 {
     private User currentUser;
-    private string connectionString = "http://5.16.21.9:3001/api";
+    private string connectionString = "http://37.128.207.61:3001/api";
     private TextBox _loginBox, _passwordBox;
     public MainWindow()
     {
