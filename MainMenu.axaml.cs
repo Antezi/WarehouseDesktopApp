@@ -44,6 +44,6 @@ public partial class MainMenu : Window
 
     private void ProfileMenu_OnDoubleTapped(object? sender, TappedEventArgs e)
     {
-        UserProfile.IsVisible = true;
+       // UserProfile.IsVisible = true;
     }
 }

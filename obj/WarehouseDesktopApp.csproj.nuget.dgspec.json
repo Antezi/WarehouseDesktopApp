@@ -1,22 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Anton\\RiderProjects\\WarehouseDesktopApp\\WarehouseDesktopApp.csproj": {}
+    "C:\\Users\\Anton\\Documents\\GitHub\\WarehouseDesktopApp\\WarehouseDesktopApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Anton\\RiderProjects\\WarehouseDesktopApp\\WarehouseDesktopApp.csproj": {
+    "C:\\Users\\Anton\\Documents\\GitHub\\WarehouseDesktopApp\\WarehouseDesktopApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Anton\\RiderProjects\\WarehouseDesktopApp\\WarehouseDesktopApp.csproj",
+        "projectUniqueName": "C:\\Users\\Anton\\Documents\\GitHub\\WarehouseDesktopApp\\WarehouseDesktopApp.csproj",
         "projectName": "WarehouseDesktopApp",
-        "projectPath": "C:\\Users\\Anton\\RiderProjects\\WarehouseDesktopApp\\WarehouseDesktopApp.csproj",
+        "projectPath": "C:\\Users\\Anton\\Documents\\GitHub\\WarehouseDesktopApp\\WarehouseDesktopApp.csproj",
         "packagesPath": "C:\\Users\\Anton\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Anton\\RiderProjects\\WarehouseDesktopApp\\obj\\",
+        "outputPath": "C:\\Users\\Anton\\Documents\\GitHub\\WarehouseDesktopApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Anton\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Anton\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
