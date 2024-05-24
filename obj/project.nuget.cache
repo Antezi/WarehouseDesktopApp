@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wUvPtil5NvhlIhoFs+I4grGPl99gm/WiCYGtBjHJX+mQOsRudbq65hJia/6AYH40mSTItOkJLDwmK5UOHLnbrA==",
+  "dgSpecHash": "QB7hRQi5gLjkRoMUY+fvNig92exarM9G9xnM3+3Qg6ZcYsPd9os6aGdb2lA2AKrEb3sVtZInIdL1FKjzM3S1AA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Anton\\Documents\\GitHub\\WarehouseDesktopApp\\WarehouseDesktopApp.csproj",
+  "projectFilePath": "C:\\Users\\Anton\\RiderProjects\\WarehouseDesktopApp\\WarehouseDesktopApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Anton\\.nuget\\packages\\avalonia\\11.0.10\\avalonia.11.0.10.nupkg.sha512",
     "C:\\Users\\Anton\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.0.2023020321\\avalonia.angle.windows.natives.2.1.0.2023020321.nupkg.sha512",

@@ -54,7 +54,7 @@ public partial class WarehousesdbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=5.16.21.9; Username=anton; Database=warehousesdb; Password=VeryHardPassword121");
+        => optionsBuilder.UseNpgsql("Host=37.128.207.61; Username=anton; Database=warehousesdb; Password=VeryHardPassword121");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -321,12 +321,33 @@ public partial class WarehousesdbContext : DbContext
             entity.ToTable("users");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Email)
+                .HasColumnType("character varying")
+                .HasColumnName("email");
+            entity.Property(e => e.Firstname)
+                .HasColumnType("character varying")
+                .HasColumnName("firstname");
+            entity.Property(e => e.Lastname)
+                .HasColumnType("character varying")
+                .HasColumnName("lastname");
             entity.Property(e => e.Login)
                 .HasMaxLength(30)
                 .HasColumnName("login");
+            entity.Property(e => e.Passport)
+                .HasMaxLength(10)
+                .HasColumnName("passport");
             entity.Property(e => e.Password)
                 .HasMaxLength(255)
                 .HasColumnName("password");
+            entity.Property(e => e.Patronymic)
+                .HasColumnType("character varying")
+                .HasColumnName("patronymic");
+            entity.Property(e => e.Phone)
+                .HasColumnType("character varying")
+                .HasColumnName("phone");
+            entity.Property(e => e.Photopath)
+                .HasColumnType("character varying")
+                .HasColumnName("photopath");
             entity.Property(e => e.Type).HasColumnName("type");
 
             entity.HasOne(d => d.TypeNavigation).WithMany(p => p.Users)

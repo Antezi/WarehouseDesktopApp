@@ -1,0 +1,85 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:WarehouseAPI.Models"
+        xmlns:models1="clr-namespace:WarehouseDesktopApp.Models"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
+        x:Class="WarehouseDesktopApp.UsersManageWindow"
+        Title="UsersManageWindow"
+        Icon="Assets/Лого-диплом.ico"
+        RequestedThemeVariant="Light">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        
+                
+        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Background="Coral">
+            <ComboBox VerticalAlignment="Center" Margin="5" Width="150" CornerRadius="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                      Name="TypeComboBox" FontFamily="Comic Sans" FontSize="16"/>
+            <ComboBox VerticalAlignment="Center" Margin="5" Width="150" CornerRadius="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                      Name="CountComboBox" FontFamily="Comic Sans" FontSize="16"/>
+            <TextBox VerticalAlignment="Center" Margin="5" Width="250" CornerRadius="20" VerticalContentAlignment="Center" 
+                      Name="SearchTextBox" FontFamily="Comic Sans" FontSize="16"/>
+            <TextBlock Margin="10 0 0 10" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Right" Name="HelloTextBlock"
+                       FontFamily="Comic Sans" FontSize="18" FontWeight="Bold"/>    
+            <Image Margin="10 5 10 5 " HorizontalAlignment="Right" Source="Assets/Лого пользователь.png" Name="ProfileImage" DoubleTapped="ProfileImage_OnDoubleTapped"/>
+        </DockPanel>
+        
+            <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Name="UsersListBox">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="models1:UserDTO">
+                        <Grid Height="200" Width="800" DoubleTapped="InputElement_OnDoubleTapped">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Image Grid.Column="0" Source="{Binding PhotopathView}" Margin="10"/>
+                            <StackPanel Grid.Column="1" Spacing="10" HorizontalAlignment="Center">
+                                <TextBlock FontSize="16" FontFamily="Comic Sans" TextAlignment="Left" Text="{Binding Id}" Name="IdTextBlock" TextWrapping="Wrap"/>
+                                <TextBlock FontSize="16" FontFamily="Comic Sans" TextAlignment="Left" Text="{Binding Login}" Name="LoginTextBlock" TextWrapping="Wrap"/>
+                                <TextBlock FontSize="16" FontFamily="Comic Sans" TextAlignment="Left" Text="{Binding TypeNavigation.Name}" Name="TypeTextBlock" TextWrapping="Wrap"/>
+                            </StackPanel>
+                            
+                            <StackPanel Grid.Column="2" Spacing="10" HorizontalAlignment="Center">
+                                <TextBlock FontSize="16" FontFamily="Comic Sans" TextAlignment="Left" Text="{Binding Firstname}" Name="FirstnameTextBlock" TextWrapping="Wrap"/>
+                                <TextBlock FontSize="16" FontFamily="Comic Sans" TextAlignment="Left" Text="{Binding Lastname}" Name="LastnameTextBlock" TextWrapping="Wrap"/>
+                                <TextBlock FontSize="16" FontFamily="Comic Sans" TextAlignment="Left" Text="{Binding Patronymic}" Name="PatronymicTextBlock" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        
+        <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+            <Button Margin="10" HorizontalAlignment="Left" Width="100" Height="30" CornerRadius="20" Background="Coral" Foreground="White">
+                <TextBlock FontFamily="Comic Sans" FontSize="15" FontWeight="Bold" TextAlignment="Center"
+                           Text="Назад"/>
+            </Button>
+            
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Comic Sans" FontSize="15" Name="UsersCountTextBlock"/>
+
+            <Button Margin="10" HorizontalAlignment="Right" Width="100" Height="30" CornerRadius="20" Background="Coral" Foreground="White">
+                <TextBlock FontFamily="Comic Sans" FontSize="15" FontWeight="Bold" TextAlignment="Center"
+                           Text="Вперёд"/>
+            </Button>
+        </DockPanel>
+    </Grid>
+</Window>

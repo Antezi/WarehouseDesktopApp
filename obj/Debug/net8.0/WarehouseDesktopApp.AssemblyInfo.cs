@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WarehouseDesktopApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+22abe691d3ee9f4fb4f5c6d9bb47ec91209e1d7f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+04d105834cac5c73431c0a4837aad3adb6fc30ed")]
 [assembly: System.Reflection.AssemblyProductAttribute("WarehouseDesktopApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WarehouseDesktopApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

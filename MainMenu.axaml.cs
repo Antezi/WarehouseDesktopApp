@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using WarehouseDesktopApp.Models;
 
@@ -44,6 +45,12 @@ public partial class MainMenu : Window
 
     private void ProfileMenu_OnDoubleTapped(object? sender, TappedEventArgs e)
     {
-       // UserProfile.IsVisible = true;
+        UsersManageWindow usersManageWindow = new UsersManageWindow();
+        usersManageWindow.ShowDialog(this);
+    }
+
+    private void BackButton_OnClick(object? sender, RoutedEventArgs e)
+    {
+       
     }
 }

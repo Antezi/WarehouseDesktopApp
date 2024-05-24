@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:warehouseDesktopApp="clr-namespace:WarehouseDesktopApp"
         xmlns:local="clr-namespace:WarehouseDesktopApp"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
         x:Class="WarehouseDesktopApp.MainMenu"
         Title="MainMenu"
         Icon="Assets/Лого-диплом.ico"
@@ -19,6 +19,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         
         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Background="Coral">
@@ -27,9 +28,26 @@
             <Image Margin="10 5 10 5 " HorizontalAlignment="Right" Source="Assets/Лого пользователь.png" Name="ProfileImage" DoubleTapped="ProfileImage_OnDoubleTapped"/>
         </DockPanel>
         
-        <local:MenuControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
-            
-        </local:MenuControl>
+        
+        <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10"  HorizontalAlignment="Center">
+            <StackPanel Margin="0 0 20  0" Spacing="20" VerticalAlignment="Center" Name="SuppliesMenu" DoubleTapped="SuppliesMenu_OnDoubleTapped">
+                <Image Width="200" Height="200" Source="Assets/Лого диплом.png"/>
+                <TextBlock TextAlignment="Center" FontFamily="Comic Sans" FontSize="18" FontWeight="Bold" Text="Панель управления грузом" TextWrapping="Wrap"/>
+            </StackPanel>
+        
+            <StackPanel Spacing="20" VerticalAlignment="Center" Name="ProfileMenu" DoubleTapped="ProfileMenu_OnDoubleTapped">
+                <Image Width="200" Height="200" Source="Assets/Лого управление пользователями.png"/>
+                <TextBlock TextAlignment="Center" FontFamily="Comic Sans" FontSize="18" FontWeight="Bold" Text="Панель управления пользователями" TextWrapping="Wrap"/>
+            </StackPanel>
+        </DockPanel>
+        
+        <DockPanel Grid.Row="2" Grid.Column="1">
+            <Button Width="100" Height="30" CornerRadius="15" Background="Coral" Foreground="White" HorizontalAlignment="Center"
+                    Name="BackButton" Click="BackButton_OnClick">
+                <TextBlock FontFamily="Comic Sans" FontSize="15" FontWeight="Bold" TextAlignment="Center"
+                           Text="Назад"/>
+            </Button>
+        </DockPanel>
         
         
     </Grid>

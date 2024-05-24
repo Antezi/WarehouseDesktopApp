@@ -37,7 +37,7 @@ public partial class MainWindow : Window
 
             using (var client = new HttpClient())
             {
-                var response = await client.GetAsync($"{connectionString}/users/AuthUser/Login/{login}/Password/{hash}");
+                var response = await client.GetAsync($"{connectionString}/AuthUser/Login/{login}/Password/{hash}");
                 if (response.IsSuccessStatusCode)
                 {
                     var userJson = await response.Content.ReadAsStringAsync();

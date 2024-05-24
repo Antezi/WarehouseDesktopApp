@@ -21,6 +21,7 @@ public partial class MessageBox : Window
 
     private void InitializeComponent()
     {
+        AvaloniaXamlLoader.Load(this);
         _messageTextBlock = this.FindControl<TextBlock>("MessageTextBlock");
     }
 

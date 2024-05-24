@@ -6,7 +6,42 @@
              x:Class="WarehouseDesktopApp.UserProfile"
              >
     <Grid>
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text=" Welcome to Avalonia!"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Column="0" Spacing="10" Margin="10" VerticalAlignment="Center">
+            <Button Height="30" Width="250" Content="Список доступных складов" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"
+                    Background="Coral" Foreground="White" CornerRadius="15" Name="AvaibleWarehousesButton" Click="AvaibleWarehousesButton_OnClick"/>
+            <Button Height="50" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"
+                    Background="Coral" Foreground="White" CornerRadius="15">
+                <TextBlock Text="Список доступных центров распределения" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="1">
+            <ListBox>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="2" VerticalAlignment="Center">
+            <Image Width="250" Height="250" Source="Assets/Лого диплом.png"/>
+        </StackPanel>
     </Grid>
    
 </UserControl>
