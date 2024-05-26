@@ -174,6 +174,9 @@ public partial class WarehousesdbContext : DbContext
             entity.Property(e => e.Name)
                 .HasColumnType("character varying")
                 .HasColumnName("name");
+            entity.Property(e => e.Photopath)
+                .HasColumnType("character varying")
+                .HasColumnName("photopath");
             entity.Property(e => e.Type).HasColumnName("type");
 
             entity.HasOne(d => d.TypeNavigation).WithMany(p => p.Products)

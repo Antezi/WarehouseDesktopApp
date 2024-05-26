@@ -8,8 +8,15 @@
         <entry key="MainWindow.axaml" value="WarehouseDesktopApp.csproj" />
         <entry key="MenuControl.axaml" value="WarehouseDesktopApp.csproj" />
         <entry key="MessageBox.axaml" value="WarehouseDesktopApp.csproj" />
+        <entry key="SupplieManageWindow.axaml" value="WarehouseDesktopApp.csproj" />
         <entry key="UserProfile.axaml" value="WarehouseDesktopApp.csproj" />
+        <entry key="UserProfileMenu.axaml" value="WarehouseDesktopApp.csproj" />
         <entry key="UsersManageWindow.axaml" value="WarehouseDesktopApp.csproj" />
+        <entry key="Windows/MainMenu.axaml" value="WarehouseDesktopApp.csproj" />
+        <entry key="Windows/MainWindow.axaml" value="WarehouseDesktopApp.csproj" />
+        <entry key="Windows/MessageBox.axaml" value="WarehouseDesktopApp.csproj" />
+        <entry key="Windows/UserProfileMenu.axaml" value="WarehouseDesktopApp.csproj" />
+        <entry key="Windows/UsersManageWindow.axaml" value="WarehouseDesktopApp.csproj" />
       </map>
     </option>
   </component>

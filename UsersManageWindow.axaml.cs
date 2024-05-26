@@ -36,6 +36,10 @@ public partial class UsersManageWindow : Window
     
     public UsersManageWindow()
     {
+        MinHeight = 800;
+        MaxHeight = 800;
+        MinWidth = 1200;
+        MaxWidth = 1200;
         InitializeComponent();
     }
 
@@ -140,16 +144,31 @@ public partial class UsersManageWindow : Window
 
     private void ProfileImage_OnDoubleTapped(object? sender, TappedEventArgs e)
     {
-        
+        UserDTO user = ((sender as Image).Parent.DataContext) as UserDTO;
+        UserProfileMenu userProfileMenu = new UserProfileMenu(user);
+        userProfileMenu.ShowDialog(this);
     }
 
-    private void BackButton_OnClick(object? sender, RoutedEventArgs e)
+
+    private void NewUserButton_OnClick(object? sender, RoutedEventArgs e)
     {
         
     }
 
-    private void InputElement_OnDoubleTapped(object? sender, TappedEventArgs e)
+    private void PrevButton_OnClick(object? sender, RoutedEventArgs e)
     {
-        
+
+    }
+
+    private void NextButton_OnClick(object? sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void UserGrid_OnDoubleTapped(object? sender, TappedEventArgs e)
+    {
+        UserDTO user = ((sender as Grid).Parent.DataContext) as UserDTO;
+        UserProfileMenu userProfileMenu = new UserProfileMenu(user);
+        userProfileMenu.ShowDialog(this);
     }
 }

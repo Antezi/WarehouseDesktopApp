@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WarehouseDesktopApp.Models;
 
-public partial class Product
+public partial class ProductDTO
 {
     public int Id { get; set; }
 

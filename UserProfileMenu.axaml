@@ -1,0 +1,29 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+        x:Class="WarehouseDesktopApp.UserProfileMenu"
+        Title="UserProfileMenu"
+        Icon="Assets/Лого-диплом.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel>
+            
+        </StackPanel>
+        
+        <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="10">
+            <Image Height="250" Width="250" Name="UserPhoto" Source="Assets/Users/Images/profile1.jpg"/>
+            <Button Margin="10" HorizontalAlignment="Right" Width="200" Height="50" CornerRadius="20" Background="Coral" Foreground="White"
+                    Name="AddImage">
+                <TextBlock FontFamily="Comic Sans" FontSize="15" FontWeight="Bold" TextAlignment="Center"
+                           Text="Добавить/Изменить фотографию" TextWrapping="Wrap"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

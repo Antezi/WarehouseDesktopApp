@@ -31,6 +31,29 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Update="MainMenu.axaml.cs">
+        <DependentUpon>MainMenu.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="MessageBox.axaml.cs">
+        <DependentUpon>MessageBox.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="UserProfileMenu.axaml.cs">
+        <DependentUpon>UserProfileMenu.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="UsersManageWindow.axaml.cs">
+        <DependentUpon>UsersManageWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="MainWindow.axaml.cs">
+        <DependentUpon>MainWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
       <Folder Include="Windows\" />
     </ItemGroup>
 </Project>

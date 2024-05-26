@@ -15,6 +15,10 @@ public partial class MessageBox : Window
     
     public MessageBox(string message)
     {
+        MinHeight = 250;
+        MaxHeight = 250;
+        MinWidth = 400;
+        MaxWidth = 400;
         InitializeComponent();
         _messageTextBlock.Text = message;
     }

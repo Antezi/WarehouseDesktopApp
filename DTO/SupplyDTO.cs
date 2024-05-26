@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using WarehouseDesktopApp.Models;
+using Avalonia.Media.Imaging;
 
-namespace WarehouseAPI.Models;
+namespace WarehouseDesktopApp.Models;
 
 public partial class SupplyDTO
 {
@@ -21,7 +21,17 @@ public partial class SupplyDTO
     public DateTime DeliveryStart { get; set; }
 
     public DateTime? DeliveryEnd { get; set; }
+    public Bitmap ImageView { get; set; }
 
     public virtual ICollection<Cell> Cells { get; set; } = new List<Cell>();
-    
+
+    public virtual Warehouse DepartWarehouse { get; set; } = null!;
+
+    public virtual Warehouse DestinationWarehouse { get; set; } = null!;
+
+    public virtual Product ProductNavigation { get; set; } = null!;
+
+    public virtual SizeType SizeNavigation { get; set; } = null!;
+
+    public virtual StatusType StatusNavigation { get; set; } = null!;
 }

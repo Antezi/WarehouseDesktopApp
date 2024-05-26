@@ -9,16 +9,25 @@ namespace WarehouseDesktopApp;
 
 public partial class MainMenu : Window
 {
-    private UserProfile _userProfile;
     private User currentUser;
     private TextBlock _helloTextBlock;
     public MainMenu()
     {
+        MinHeight = 800;
+        MaxHeight = 800;
+        MinWidth = 1200;
+        MaxWidth = 1200;
+        
         InitializeComponent();
     }
     
     public MainMenu(User user)
     {
+        MinHeight = 800;
+        MaxHeight = 800;
+        MinWidth = 1200;
+        MaxWidth = 1200;
+        
         InitializeComponent();
 
         currentUser = user;
@@ -30,7 +39,6 @@ public partial class MainMenu : Window
         AvaloniaXamlLoader.Load(this);
 
         _helloTextBlock = this.FindControl<TextBlock>("HelloTextBlock");
-        _userProfile = this.FindControl<UserProfile>("UserProfile");
     }
 
     private void ProfileImage_OnDoubleTapped(object? sender, TappedEventArgs e)

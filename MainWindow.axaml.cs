@@ -16,6 +16,10 @@ public partial class MainWindow : Window
     private TextBox _loginBox, _passwordBox;
     public MainWindow()
     {
+        MinHeight = 400;
+        MaxHeight = 400;
+        MinWidth = 600;
+        MaxWidth = 600;
         InitializeComponent();
     }
 

@@ -26,13 +26,13 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [C:/Users/Anton/RiderProjects/WarehouseDesktopApp/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/Anton/RiderProjects/WarehouseDesktopApp/MenuControl.axaml]
-build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
-
 [C:/Users/Anton/RiderProjects/WarehouseDesktopApp/MessageBox.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/Anton/RiderProjects/WarehouseDesktopApp/UserProfile.axaml]
+[C:/Users/Anton/RiderProjects/WarehouseDesktopApp/SupplieManageWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/Anton/RiderProjects/WarehouseDesktopApp/UserProfileMenu.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [C:/Users/Anton/RiderProjects/WarehouseDesktopApp/UsersManageWindow.axaml]
