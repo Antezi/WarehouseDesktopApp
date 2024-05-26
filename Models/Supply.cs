@@ -5,8 +5,6 @@ namespace WarehouseDesktopApp.Models;
 
 public partial class Supply
 {
-    public int Id { get; set; }
-
     public int Product { get; set; }
 
     public int Size { get; set; }
@@ -21,6 +19,12 @@ public partial class Supply
 
     public DateTime? DeliveryEnd { get; set; }
 
+    public int TruckId { get; set; }
+
+    public int Count { get; set; }
+
+    public int Id { get; set; }
+
     public virtual ICollection<Cell> Cells { get; set; } = new List<Cell>();
 
     public virtual Warehouse DepartWarehouse { get; set; } = null!;
@@ -32,4 +36,6 @@ public partial class Supply
     public virtual SizeType SizeNavigation { get; set; } = null!;
 
     public virtual StatusType StatusNavigation { get; set; } = null!;
+
+    public virtual Truck Truck { get; set; } = null!;
 }

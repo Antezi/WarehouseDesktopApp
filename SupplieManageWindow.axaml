@@ -22,9 +22,11 @@
         
         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Background="Coral">
             <ComboBox VerticalAlignment="Center" Margin="5" Width="150" CornerRadius="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
-                      Name="TypeComboBox" FontFamily="Comic Sans" FontSize="16"/>
+                      Name="StatusComboBox" FontFamily="Comic Sans" FontSize="16" SelectionChanged="StatusComboBox_OnSelectionChanged"/>
             <ComboBox VerticalAlignment="Center" Margin="5" Width="150" CornerRadius="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
-                      Name="CountComboBox" FontFamily="Comic Sans" FontSize="16"/>
+                      Name="CountComboBox" FontFamily="Comic Sans" FontSize="16" SelectionChanged="CountComboBox_OnSelectionChanged"/>
+            <ComboBox VerticalAlignment="Center" Margin="5" Width="150" CornerRadius="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                      Name="ProductComboBox" FontFamily="Comic Sans" FontSize="16" SelectionChanged="ProductComboBox_OnSelectionChanged"/>
             <TextBox VerticalAlignment="Center" Margin="5" Width="250" CornerRadius="20" VerticalContentAlignment="Center" 
                      Name="SearchTextBox" FontFamily="Comic Sans" FontSize="16"/>
             <TextBlock Margin="10 0 0 10" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Right" Name="HelloTextBlock"
@@ -33,6 +35,12 @@
                     Name="NewSupplieButton" Click="NewSupplieButton_OnClick">
                 <TextBlock FontFamily="Comic Sans" FontSize="15" FontWeight="Bold" TextAlignment="Center"
                            Text="Новая доставка"/>
+            </Button>
+            
+            <Button Margin="10 0 0 0" HorizontalAlignment="Right" Width="150" Height="30" CornerRadius="20" Background="White" Foreground="Black"
+                    Name="NewProductButton" Click="NewSupplieButton_OnClick">
+                <TextBlock FontFamily="Comic Sans" FontSize="15" FontWeight="Bold" TextAlignment="Center"
+                           Text="Новый товар"/>
             </Button>
             <Image Margin="10 5 10 5 " HorizontalAlignment="Right" Source="Assets/Лого пользователь.png" Name="ProfileImage"/>
         </DockPanel>
@@ -71,7 +79,7 @@
                                 <Button HorizontalAlignment="Right" Width="150" Height="30" CornerRadius="20" Background="White" Foreground="Black"
                                         Name="EditSupplieButton" Click="EditSupplieButton_OnClick">
                                     <TextBlock FontFamily="Comic Sans" FontSize="15" FontWeight="Bold" TextAlignment="Center"
-                                               Text="Новая доставка"/>
+                                               Text="Изменить"/>
                                 </Button>
                             </StackPanel>
                             
@@ -88,7 +96,7 @@
                            Text="Назад"/>
             </Button>
             
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Comic Sans" FontSize="15" Name="UsersCountTextBlock"/>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Comic Sans" FontSize="15" Name="SuppliesCountTextBlock"/>
 
             <Button Margin="10" HorizontalAlignment="Right" Width="100" Height="30" CornerRadius="20" Background="Coral" Foreground="White"
                     Name="NextButton" Click="NextButton_OnClick">

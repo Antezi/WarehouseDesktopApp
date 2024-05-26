@@ -48,7 +48,8 @@ public partial class MainMenu : Window
 
     private void SuppliesMenu_OnDoubleTapped(object? sender, TappedEventArgs e)
     {
-        
+        SupplieManageWindow supplieManageWindow = new SupplieManageWindow();
+        supplieManageWindow.ShowDialog(this);
     }
 
     private void ProfileMenu_OnDoubleTapped(object? sender, TappedEventArgs e)

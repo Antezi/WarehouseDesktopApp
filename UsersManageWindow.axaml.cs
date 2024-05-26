@@ -60,6 +60,11 @@ public partial class UsersManageWindow : Window
 
         _typeComboBox = this.FindControl<ComboBox>("TypeComboBox");
         _countComboBox = this.FindControl<ComboBox>("CountComboBox");
+        
+        _countComboBox.Items.Add("10");
+        _countComboBox.Items.Add("20");
+        _countComboBox.Items.Add("50");
+        _countComboBox.Items.Add("Все");
 
         LoadData();
     }

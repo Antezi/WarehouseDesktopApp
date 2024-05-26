@@ -40,6 +40,12 @@ public partial class WarehousesdbContext : DbContext
 
     public virtual DbSet<Supply> Supplies { get; set; }
 
+    public virtual DbSet<Truck> Trucks { get; set; }
+
+    public virtual DbSet<TruckModel> TruckModels { get; set; }
+
+    public virtual DbSet<TruckStatus> TruckStatuses { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
 
     public virtual DbSet<UsersType> UsersTypes { get; set; }
@@ -115,12 +121,12 @@ public partial class WarehousesdbContext : DbContext
             entity.HasOne(d => d.SizeNavigation).WithMany(p => p.Cells)
                 .HasForeignKey(d => d.Size)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("cells_fk0");
+                .HasConstraintName("cells_size_types_fk");
 
             entity.HasOne(d => d.Supplie).WithMany(p => p.Cells)
                 .HasForeignKey(d => d.SupplieId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("cells_fk2");
+                .HasConstraintName("cells_supplies_fk");
 
             entity.HasOne(d => d.WarehouseNavigation).WithMany(p => p.Cells)
                 .HasForeignKey(d => d.Warehouse)
@@ -169,7 +175,7 @@ public partial class WarehousesdbContext : DbContext
             entity.ToTable("products");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
             entity.Property(e => e.Name)
                 .HasColumnType("character varying")
@@ -182,7 +188,7 @@ public partial class WarehousesdbContext : DbContext
             entity.HasOne(d => d.TypeNavigation).WithMany(p => p.Products)
                 .HasForeignKey(d => d.Type)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("products_fk0");
+                .HasConstraintName("products_product_type_fk");
         });
 
         modelBuilder.Entity<ProductType>(entity =>
@@ -192,7 +198,7 @@ public partial class WarehousesdbContext : DbContext
             entity.ToTable("product_type");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
@@ -243,7 +249,7 @@ public partial class WarehousesdbContext : DbContext
             entity.ToTable("size_types");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
             entity.Property(e => e.Name)
                 .HasColumnType("character varying")
@@ -271,8 +277,9 @@ public partial class WarehousesdbContext : DbContext
             entity.ToTable("supplies");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
+            entity.Property(e => e.Count).HasColumnName("count");
             entity.Property(e => e.DeliveryEnd)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("delivery_end");
@@ -290,6 +297,7 @@ public partial class WarehousesdbContext : DbContext
             entity.Property(e => e.Status)
                 .ValueGeneratedOnAdd()
                 .HasColumnName("status");
+            entity.Property(e => e.TruckId).HasColumnName("truck_id");
 
             entity.HasOne(d => d.DepartWarehouse).WithMany(p => p.SupplyDepartWarehouses)
                 .HasForeignKey(d => d.DepartWarehouseId)
@@ -304,17 +312,76 @@ public partial class WarehousesdbContext : DbContext
             entity.HasOne(d => d.ProductNavigation).WithMany(p => p.Supplies)
                 .HasForeignKey(d => d.Product)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("supplies_fk0");
+                .HasConstraintName("supplies_products_fk");
 
             entity.HasOne(d => d.SizeNavigation).WithMany(p => p.Supplies)
                 .HasForeignKey(d => d.Size)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("supplies_fk1");
+                .HasConstraintName("supplies_size_types_fk");
 
             entity.HasOne(d => d.StatusNavigation).WithMany(p => p.Supplies)
                 .HasForeignKey(d => d.Status)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("supplies_fk2");
+
+            entity.HasOne(d => d.Truck).WithMany(p => p.Supplies)
+                .HasForeignKey(d => d.TruckId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("supplies_trucks_fk");
+        });
+
+        modelBuilder.Entity<Truck>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("newtable_pk");
+
+            entity.ToTable("trucks");
+
+            entity.Property(e => e.Id)
+                .UseIdentityAlwaysColumn()
+                .HasColumnName("id");
+            entity.Property(e => e.Model).HasColumnName("model");
+            entity.Property(e => e.Number)
+                .HasColumnType("character varying")
+                .HasColumnName("number");
+            entity.Property(e => e.Status).HasColumnName("status");
+
+            entity.HasOne(d => d.ModelNavigation).WithMany(p => p.Trucks)
+                .HasForeignKey(d => d.Model)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("trucks_truck_models_fk");
+
+            entity.HasOne(d => d.StatusNavigation).WithMany(p => p.Trucks)
+                .HasForeignKey(d => d.Status)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("trucks_truck_statuses_fk");
+        });
+
+        modelBuilder.Entity<TruckModel>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("truck_models_pk");
+
+            entity.ToTable("truck_models");
+
+            entity.Property(e => e.Id)
+                .UseIdentityAlwaysColumn()
+                .HasColumnName("id");
+            entity.Property(e => e.Name)
+                .HasColumnType("character varying")
+                .HasColumnName("name");
+        });
+
+        modelBuilder.Entity<TruckStatus>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("truck_statuses_pk");
+
+            entity.ToTable("truck_statuses");
+
+            entity.Property(e => e.Id)
+                .UseIdentityAlwaysColumn()
+                .HasColumnName("id");
+            entity.Property(e => e.Name)
+                .HasColumnType("character varying")
+                .HasColumnName("name");
         });
 
         modelBuilder.Entity<User>(entity =>
@@ -387,12 +454,12 @@ public partial class WarehousesdbContext : DbContext
             entity.HasOne(d => d.ClassNavigation).WithMany(p => p.Warehouses)
                 .HasForeignKey(d => d.Class)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("warehouses_fk1");
+                .HasConstraintName("warehouses_warehouses_classes_fk");
 
             entity.HasOne(d => d.TypeNavigation).WithMany(p => p.Warehouses)
                 .HasForeignKey(d => d.Type)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("warehouses_fk0");
+                .HasConstraintName("warehouses_warehouse_types_fk");
         });
 
         modelBuilder.Entity<WarehouseType>(entity =>
@@ -402,7 +469,7 @@ public partial class WarehousesdbContext : DbContext
             entity.ToTable("warehouse_types");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
             entity.Property(e => e.Name)
                 .HasColumnType("character varying")
@@ -439,7 +506,7 @@ public partial class WarehousesdbContext : DbContext
             entity.ToTable("warehouses_classes");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
             entity.Property(e => e.Name)
                 .HasColumnType("character varying")
