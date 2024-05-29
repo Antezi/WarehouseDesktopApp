@@ -6,8 +6,6 @@ namespace WarehouseDesktopApp.Models;
 
 public partial class SupplyDTO
 {
-    public int Id { get; set; }
-
     public int Product { get; set; }
 
     public int Size { get; set; }
@@ -21,7 +19,14 @@ public partial class SupplyDTO
     public DateTime DeliveryStart { get; set; }
 
     public DateTime? DeliveryEnd { get; set; }
+
+    public int TruckId { get; set; }
+
+    public int Count { get; set; }
+
+    public int Id { get; set; }
     public Bitmap ImageView { get; set; }
+    public string ColorView { get; set; }
 
     public virtual ICollection<Cell> Cells { get; set; } = new List<Cell>();
 
@@ -34,4 +39,6 @@ public partial class SupplyDTO
     public virtual SizeType SizeNavigation { get; set; } = null!;
 
     public virtual StatusType StatusNavigation { get; set; } = null!;
+
+    public virtual Truck Truck { get; set; } = null!;
 }

@@ -2,28 +2,113 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:WarehouseAPI.Models"
+        xmlns:models1="clr-namespace:WarehouseDesktopApp.Models"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
         x:Class="WarehouseDesktopApp.UserProfileMenu"
         Title="UserProfileMenu"
-        Icon="Assets/Лого-диплом.ico">
+        Icon="Assets/Лого-диплом.ico"
+        RequestedThemeVariant="Light">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <StackPanel>
+        <StackPanel Grid.Column="0" Spacing="15" Margin="20" VerticalAlignment="Center">
+            <TextBlock FontFamily="Comic Sans" FontSize="14" Name="IdTextBlock" Text="Id"/>
+            <TextBox FontFamily="Comic Sans" FontSize="14" CornerRadius="20" Watermark="Логин" Name="LoginTextBox" 
+                     TextWrapping="Wrap"/>
+            <TextBox FontFamily="Comic Sans" FontSize="14" CornerRadius="20" Watermark="Пароль" Name="PasswordTextBox" 
+                     TextWrapping="Wrap"/>
+            <TextBox FontFamily="Comic Sans" FontSize="14" CornerRadius="20" Watermark="Имя" Name="FirstnameTextBox" 
+                     TextWrapping="Wrap"/>
+            <TextBox FontFamily="Comic Sans" FontSize="14" CornerRadius="20" Watermark="Фамилия" Name="LastnameTextBox" 
+                     TextWrapping="Wrap"/>
+            <TextBox FontFamily="Comic Sans" FontSize="14" CornerRadius="20" Watermark="Отчество" Name="PatronymicTextBox" 
+                     TextWrapping="Wrap"/>
+            <TextBox FontFamily="Comic Sans" FontSize="14" CornerRadius="20" Watermark="Email" Name="EmailTextBox" 
+                     TextWrapping="Wrap"/>
+            <TextBox FontFamily="Comic Sans" FontSize="14" CornerRadius="20" Watermark="Телефон" Name="PhoneTextBox" 
+                     TextWrapping="Wrap"/>
+            <DockPanel>
+                <TextBlock FontFamily="Comic Sans" FontSize="14" Text="Паспорт: " VerticalAlignment="Center"/>
+                <MaskedTextBox FontFamily="Comic Sans" FontSize="14" HorizontalAlignment="Left" HorizontalContentAlignment="Center" CornerRadius="20" Watermark="Код паспорта" 
+                               Name="PassportMaskedTextBox" Mask="0000 000000" BorderBrush="White"/>
+            </DockPanel>
             
+            <ComboBox FontFamily="Comic Sans" FontSize="14" CornerRadius="20" Name="UserTypeComboBox" Width="150" HorizontalAlignment="Left"
+                      HorizontalContentAlignment="Center"/>
         </StackPanel>
         
-        <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="10">
+        <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="10">
             <Image Height="250" Width="250" Name="UserPhoto" Source="Assets/Users/Images/profile1.jpg"/>
-            <Button Margin="10" HorizontalAlignment="Right" Width="200" Height="50" CornerRadius="20" Background="Coral" Foreground="White"
-                    Name="AddImage">
+            <Button Margin="10" HorizontalAlignment="Center" Width="200" Height="30" CornerRadius="20" Background="Coral" Foreground="White"
+                    Name="AddImage" Click="AddImage_OnClick">
                 <TextBlock FontFamily="Comic Sans" FontSize="15" FontWeight="Bold" TextAlignment="Center"
                            Text="Добавить/Изменить фотографию" TextWrapping="Wrap"/>
             </Button>
+            
+            <Button Margin="10" HorizontalAlignment="Center" Width="200" Height="30" CornerRadius="20" Background="Coral" Foreground="White"
+                    Name="SaveChanges" Click="SaveChanges_OnClick">
+                <TextBlock FontFamily="Comic Sans" FontSize="15" FontWeight="Bold" TextAlignment="Center"
+                           Text="Сохранить" TextWrapping="Wrap"/>
+            </Button>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <DockPanel>
+                <ListBox Name="NoAccessWarehousesListBox">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                
+                    <ListBox.ItemTemplate>
+                        <DataTemplate DataType="models1:WarehouseDTO">
+                            <Grid Name="NoAccessGrid" DoubleTapped="NoAccessGrid_OnDoubleTapped">
+                                <StackPanel Spacing="5"> 
+                                    <TextBlock FontFamily="Comic Sans" FontSize="14" Text="{Binding Id}"/>
+                                    <TextBlock FontFamily="Comic Sans" FontSize="14" Text="{Binding AddressView}"/>
+                                    <TextBlock FontFamily="Comic Sans" FontSize="14" Text="{Binding TypeView}"/>
+                                    <TextBlock FontFamily="Comic Sans" FontSize="14" Text="{Binding ClassView}"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+            </DockPanel>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <DockPanel>
+                <ListBox Name="AccessWarehousesListBox">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                
+                    <ListBox.ItemTemplate>
+                        <DataTemplate DataType="models1:WarehouseDTO">
+                            <Grid Name="AccessGrid" DoubleTapped="AccessGrid_OnDoubleTapped">
+                                <StackPanel Spacing="5" >
+                                    <TextBlock FontFamily="Comic Sans" FontSize="14" Text="{Binding Id}"/>
+                                    <TextBlock FontFamily="Comic Sans" FontSize="14" Text="{Binding AddressView}"/>
+                                    <TextBlock FontFamily="Comic Sans" FontSize="14" Text="{Binding TypeView}"/>
+                                    <TextBlock FontFamily="Comic Sans" FontSize="14" Text="{Binding ClassView}"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>
         </StackPanel>
     </Grid>
 </Window>

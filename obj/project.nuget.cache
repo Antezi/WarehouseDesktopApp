@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wUvPtil5NvhlIhoFs+I4grGPl99gm/WiCYGtBjHJX+mQOsRudbq65hJia/6AYH40mSTItOkJLDwmK5UOHLnbrA==",
+  "dgSpecHash": "zeHoF7NRCf7ISoA1G8iozn3ODcC5iTeVseuao3ZgyE9uvjXNgTXzNfNjXzN9Bri5Nt7kO0AXH6Jyj8N6Jfpryw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Anton\\Documents\\GitHub\\WarehouseDesktopApp\\WarehouseDesktopApp.csproj",
+  "projectFilePath": "C:\\Users\\Anton\\RiderProjects\\WarehouseDesktopApp\\WarehouseDesktopApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Anton\\.nuget\\packages\\avalonia\\11.0.10\\avalonia.11.0.10.nupkg.sha512",
     "C:\\Users\\Anton\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.0.2023020321\\avalonia.angle.windows.natives.2.1.0.2023020321.nupkg.sha512",
@@ -20,6 +20,7 @@
     "C:\\Users\\Anton\\.nuget\\packages\\avalonia.themes.simple\\11.0.10\\avalonia.themes.simple.11.0.10.nupkg.sha512",
     "C:\\Users\\Anton\\.nuget\\packages\\avalonia.win32\\11.0.10\\avalonia.win32.11.0.10.nupkg.sha512",
     "C:\\Users\\Anton\\.nuget\\packages\\avalonia.x11\\11.0.10\\avalonia.x11.11.0.10.nupkg.sha512",
+    "C:\\Users\\Anton\\.nuget\\packages\\bogus\\35.5.1\\bogus.35.5.1.nupkg.sha512",
     "C:\\Users\\Anton\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
     "C:\\Users\\Anton\\.nuget\\packages\\harfbuzzsharp\\7.3.0\\harfbuzzsharp.7.3.0.nupkg.sha512",
     "C:\\Users\\Anton\\.nuget\\packages\\harfbuzzsharp.nativeassets.linux\\7.3.0\\harfbuzzsharp.nativeassets.linux.7.3.0.nupkg.sha512",

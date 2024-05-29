@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace WarehouseAPI.Models;
+namespace WarehouseDesktopApp.Models;
 
 public partial class WarehousesAccessToUserDTO
 {
@@ -10,4 +10,8 @@ public partial class WarehousesAccessToUserDTO
     public int WarehouseId { get; set; }
 
     public int UserId { get; set; }
+
+    public virtual User User { get; set; } = null!;
+
+    public virtual Warehouse Warehouse { get; set; } = null!;
 }

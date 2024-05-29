@@ -6,7 +6,9 @@
         xmlns:models1="clr-namespace:WarehouseDesktopApp.Models"
         mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
         x:Class="WarehouseDesktopApp.SupplieManageWindow"
-        Title="SupplieManageWindow">
+        Title="SupplieManageWindow"
+        Icon="Assets/Лого-диплом.ico"
+        RequestedThemeVariant="Light">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -42,7 +44,7 @@
                 <TextBlock FontFamily="Comic Sans" FontSize="15" FontWeight="Bold" TextAlignment="Center"
                            Text="Новый товар"/>
             </Button>
-            <Image Margin="10 5 10 5 " HorizontalAlignment="Right" Source="Assets/Лого пользователь.png" Name="ProfileImage"/>
+            <Image Margin="10 5 10 5 " HorizontalAlignment="Right" Name="ProfileImage" DoubleTapped="ProfileImage_OnDoubleTapped"/>
         </DockPanel>
         
          <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Name="SuppliesListBox">
@@ -54,7 +56,7 @@
                 
                 <ListBox.ItemTemplate>
                     <DataTemplate DataType="models1:SupplyDTO">
-                        <Grid Height="200" Width="1200" Name="UserGrid" >
+                        <Grid Height="200" Width="1200" Name="UserGrid" Background="{Binding ColorView}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>

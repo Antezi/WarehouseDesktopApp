@@ -1,0 +1,85 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="WarehouseDesktopApp.SupplieEditWindow"
+        Title="SupplieEditWindow"
+        Icon="Assets/Лого-диплом.ico"
+        RequestedThemeVariant="Light">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <DockPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Background="Coral">
+            <Image Margin="10 5 10 5 " HorizontalAlignment="Right" Name="ProfileImage" DoubleTapped="ProfileImage_OnDoubleTapped"/>
+        </DockPanel>
+        
+        <StackPanel Grid.Row="1" Grid.Column="0" Spacing="10" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Margin="10 0 0 0" HorizontalAlignment="Left" FontFamily="Comic Sans" FontSize="14" Name="IdTextBlock" Text="id"/>
+            
+            <ComboBox Width="200" Height="30" FontFamily="Comic Sans" FontSize="14" CornerRadius="20" HorizontalContentAlignment="Center"
+                      Name="SizeComboBox" SelectionChanged="SizeComboBox_OnSelectionChanged"/>
+            <TextBlock HorizontalAlignment="Center" FontFamily="Comic Sans" FontSize="10" Text="Размер"/>
+            
+            <ComboBox Width="200" Height="30" FontFamily="Comic Sans" FontSize="14" CornerRadius="20" HorizontalContentAlignment="Center"
+                      Name="StatusComboBox" SelectionChanged="StatusComboBox_OnSelectionChanged"/>
+            <TextBlock HorizontalAlignment="Center" FontFamily="Comic Sans" FontSize="10" Text="Статус"/>
+            
+            <ComboBox Width="200" Height="30" FontFamily="Comic Sans" FontSize="14" CornerRadius="20" HorizontalContentAlignment="Center"
+                      Name="TruckComboBox" SelectionChanged="TruckComboBox_OnSelectionChanged"/>
+            <TextBlock HorizontalAlignment="Center" FontFamily="Comic Sans" FontSize="10" Text="Машина доставки"/>
+            
+            <ComboBox Width="200" Height="30" FontFamily="Comic Sans" FontSize="14" CornerRadius="20" HorizontalContentAlignment="Center"
+                      Name="ProductComboBox"/>
+            <TextBlock HorizontalAlignment="Center" FontFamily="Comic Sans" FontSize="10" Text="Статус"/>
+            
+            <NumericUpDown Width="200" Height="30" CornerRadius="20" HorizontalContentAlignment="Center"
+                           Minimum="0" Maximum="9999" FontSize="12" Name="CountNumericUpDown" Watermark="Количество товара"/>
+            
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Spacing="10">
+            <ComboBox Width="200" Height="30" FontFamily="Comic Sans" FontSize="14" CornerRadius="20" HorizontalContentAlignment="Center"
+                      Name="DepartWarehouseComboBox" SelectionChanged="DepartWarehouseComboBox_OnSelectionChanged"/>
+            <TextBlock HorizontalAlignment="Center" FontFamily="Comic Sans" FontSize="10" Name="DepartAddressTextBlock"
+                       TextWrapping="Wrap"/>
+            
+            <ComboBox Width="200" Height="30" FontFamily="Comic Sans" FontSize="14" CornerRadius="20" HorizontalContentAlignment="Center"
+                      Name="DestinationComboBox" SelectionChanged="DestinationComboBox_OnSelectionChanged"/>
+            <TextBlock HorizontalAlignment="Center" FontFamily="Comic Sans" FontSize="10" Name="DestinationTextBlock"
+                       TextWrapping="Wrap"/>
+            
+            <CalendarDatePicker Width="200" Height="30" FontFamily="Comic Sans" FontSize="14" VerticalContentAlignment="Center"
+                                HorizontalContentAlignment="Center" CornerRadius="20" Name="DeliveryStartCalendarDatePicker"/>
+            <TextBlock HorizontalAlignment="Center" FontFamily="Comic Sans" FontSize="10" Text="Начало доставки"/>
+            
+            <CalendarDatePicker Width="200" Height="30" FontFamily="Comic Sans" FontSize="14" VerticalContentAlignment="Center"
+                                HorizontalContentAlignment="Center" CornerRadius="20" Name="DeliveryEndCalendarDatePicker"/>
+            <TextBlock HorizontalAlignment="Center" FontFamily="Comic Sans" FontSize="10" Text="Конец доставки"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Grid.Column="2" Spacing="10" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Width="250" Height="250" Name="SupplyImage" HorizontalAlignment="Center"/>
+            <Button Margin="10 0 0 0" Width="200" Height="30" CornerRadius="20" Background="Coral" Foreground="White"
+                    Name="LoadNewImageButton" Click="LoadNewImageButton_OnClick">
+                <TextBlock FontFamily="Comic Sans" FontSize="12" FontWeight="Bold" TextAlignment="Center"
+                           Text="Добавить изображение"/>
+            </Button>
+            
+            <Button Margin="10 0 0 0" Width="200" Height="30" CornerRadius="20" Background="Coral" Foreground="White"
+                    Name="SaveChangesButton" Click="SaveChangesButton_OnClick">
+                <TextBlock FontFamily="Comic Sans" FontSize="12" FontWeight="Bold" TextAlignment="Center"
+                           Name="SaveChangesTextBlock" Text="Создать поставку"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

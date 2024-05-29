@@ -29,8 +29,14 @@ public partial class UserDTO
     public string? Photopath { get; set; }
     
     public Bitmap PhotopathView { get; set; }
+    
     public string TypeView { get; set; }
-
+    public string LoginView { get; set; }
+    public string FirstnameView { get; set; }
+    public string LastnameView { get; set; }
+    public string PatronymicView { get; set; }
+    public string EmailView { get; set; }
+    public string PassportView { get; set; }
     public virtual ICollection<AccessToUser> AccessToUsers { get; set; } = new List<AccessToUser>();
 
     public virtual ICollection<RightAccessToUser> RightAccessToUsers { get; set; } = new List<RightAccessToUser>();

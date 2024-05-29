@@ -6,6 +6,7 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media.Imaging;
@@ -20,7 +21,9 @@ public partial class SupplieManageWindow : Window
     private WarehousesdbContext context = new WarehousesdbContext();
     private int supplyCount = 10, statusCode, productCode;
     private ListBox _suppliesListBox;
+    private Image _profileImage;
     private ComboBox _statusComboBox, _countComboBox, _productComboBox;
+    private UserDTO _currentUser;
 
     private TextBox _searchTextBox;
     private TextBlock _helloTextBlock,
@@ -33,6 +36,13 @@ public partial class SupplieManageWindow : Window
     public SupplieManageWindow()
     {
         InitializeComponent();
+    }
+
+    public SupplieManageWindow(UserDTO user)
+    {
+        InitializeComponent();
+        _currentUser = user;
+        LoadData();
     }
 
     private void InitializeComponent()
@@ -51,6 +61,8 @@ public partial class SupplieManageWindow : Window
 
         _searchTextBox = this.FindControl<TextBox>("SearchTextBox");
 
+        _profileImage = this.FindControl<Image>("ProfileImage");
+
         _helloTextBlock = this.FindControl<TextBlock>("HelloTextBlock");
         _idTextBlock = this.FindControl<TextBlock>("IdTextBlock");
         _productTextBlock = this.FindControl<TextBlock>("ProductTextBlock");
@@ -66,8 +78,11 @@ public partial class SupplieManageWindow : Window
 
         _statusComboBox.ItemsSource = context.StatusTypes.Select(s => s.Name).ToList();
         _productComboBox.ItemsSource = context.Products.Select(p => p.Name).ToList();
-        
-        LoadData();
+
+        if (_currentUser != null)
+        {
+            _profileImage.Source = _currentUser.PhotopathView;
+        }
     }
     
     private async Task<List<Supply>> GetSuppliesAsync()
@@ -100,6 +115,9 @@ public partial class SupplieManageWindow : Window
                     Product = s.Product,
                     Size = s.Size,
                     Status = s.Status,
+                    Count = s.Count,
+                    Truck = s.Truck,
+                    TruckId = s.TruckId,
                     DepartWarehouseId = s.DepartWarehouseId,
                     DestinationWarehouseId = s.DestinationWarehouseId,
                     DeliveryStart = s.DeliveryStart,
@@ -114,6 +132,18 @@ public partial class SupplieManageWindow : Window
 
                 foreach (var s in currentSupplies)
                 {
+                    if (s.Status == 1)
+                    {
+                        s.ColorView = "#FFB99F";
+                    } 
+                    else if (s.Status == 2)
+                    {
+                        s.ColorView = "#FF9F7C";
+                    }
+                    else if (s.Status == 3)
+                    {
+                        s.ColorView = "#BF775D";
+                    }
                     try
                     {
                         Bitmap image = new Bitmap("../../../Assets/Products/Images/" + s.ProductNavigation.Photopath);
@@ -226,7 +256,9 @@ public partial class SupplieManageWindow : Window
 
     private void EditSupplieButton_OnClick(object? sender, RoutedEventArgs e)
     {
-
+        SupplyDTO supply = ((sender as Button).Parent.DataContext) as SupplyDTO;
+        SupplieEditWindow supplieEditWindow = new SupplieEditWindow(supply);
+        supplieEditWindow.ShowDialog(this);
     }
 
     private void NewSupplieButton_OnClick(object? sender, RoutedEventArgs e)
@@ -284,4 +316,9 @@ public partial class SupplieManageWindow : Window
         SortData(currentSupplies);
     }
 
+    private void ProfileImage_OnDoubleTapped(object? sender, TappedEventArgs e)
+    {
+        UserProfileMenu userProfileMenu = new UserProfileMenu(_currentUser);
+        userProfileMenu.ShowDialog(this);
+    }
 }

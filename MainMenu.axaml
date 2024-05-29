@@ -25,22 +25,26 @@
         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Background="Coral">
             <TextBlock Margin="10 0 0 10" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Right" Name="HelloTextBlock"
                        FontFamily="Comic Sans" FontSize="18" FontWeight="Bold"/>    
-            <Image Margin="10 5 10 5 " HorizontalAlignment="Right" Source="Assets/Лого пользователь.png" Name="ProfileImage" DoubleTapped="ProfileImage_OnDoubleTapped"/>
+            <Image Margin="10 5 10 5 " HorizontalAlignment="Right" Name="ProfileImage" DoubleTapped="ProfileImage_OnDoubleTapped"/>
         </DockPanel>
         
         
-        <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10"  HorizontalAlignment="Center">
-            <StackPanel Margin="0 0 20  0" Spacing="20" VerticalAlignment="Center" Name="SuppliesMenu" DoubleTapped="SuppliesMenu_OnDoubleTapped">
+            <StackPanel Grid.Row="1" Grid.Column="0" Spacing="20" VerticalAlignment="Center" Name="ProductMenu" DoubleTapped="ProductMenu_OnDoubleTapped" HorizontalAlignment="Center">
                 <Image Width="200" Height="200" Source="Assets/Лого диплом.png"/>
+                <TextBlock TextAlignment="Center" FontFamily="Comic Sans" FontSize="18" FontWeight="Bold" Text="Управление товарами" TextWrapping="Wrap"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="1" Grid.Column="1" Margin="0 0 20  0" Spacing="20" VerticalAlignment="Center" Name="SuppliesMenu" DoubleTapped="SuppliesMenu_OnDoubleTapped"
+                        HorizontalAlignment="Center">
+                <Image Width="200" Height="200" Source="Assets/Управление грузом.png"/>
                 <TextBlock TextAlignment="Center" FontFamily="Comic Sans" FontSize="18" FontWeight="Bold" Text="Панель управления грузом" TextWrapping="Wrap"/>
             </StackPanel>
         
-            <StackPanel Spacing="20" VerticalAlignment="Center" Name="ProfileMenu" DoubleTapped="ProfileMenu_OnDoubleTapped">
+            <StackPanel Grid.Row="1" Grid.Column="2" Spacing="20" VerticalAlignment="Center" Name="ProfileMenu" DoubleTapped="ProfileMenu_OnDoubleTapped" HorizontalAlignment="Center">
                 <Image Width="200" Height="200" Source="Assets/Лого управление пользователями.png"/>
                 <TextBlock TextAlignment="Center" FontFamily="Comic Sans" FontSize="18" FontWeight="Bold" Text="Панель управления пользователями" TextWrapping="Wrap"/>
             </StackPanel>
-        </DockPanel>
-        
+
         <DockPanel Grid.Row="2" Grid.Column="1">
             <Button Width="100" Height="30" CornerRadius="15" Background="Coral" Foreground="White" HorizontalAlignment="Center"
                     Name="BackButton" Click="BackButton_OnClick">

@@ -16,6 +16,7 @@
         <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.10"/>
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.10"/>
+        <PackageReference Include="Bogus" Version="35.5.1" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.18" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.18">
           <PrivateAssets>all</PrivateAssets>
@@ -51,9 +52,5 @@
         <DependentUpon>MainWindow.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Windows\" />
     </ItemGroup>
 </Project>
